@@ -8,12 +8,22 @@
 /**
  * Implements hook_menu
  */
+
+function vsite_register_permission(){
+    return array(
+        'create openscholar site' => array(
+            'title' => t('Create OpenScholar Site'),
+            'description' => t('Create OpenScholar Sites'),
+        ),
+    );        
+}
+
 function vsite_register_menu() {
     $items['site/register'] = array(
     'title' => 'Create your web site',
     'page callback' => 'drupal_get_form',
     'page arguments' => array('vsite_register_form'),
-    'access callback' => 'vsite_vsite_exists_access',
+    'access arguments' => 'create openscholar site',
     'file' => 'vsite_register.form.inc',
   );
 
