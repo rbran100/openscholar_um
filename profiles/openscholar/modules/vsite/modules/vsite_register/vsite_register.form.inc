@@ -6,6 +6,7 @@
  * Provides form for site/register
  */
 function vsite_register_form($form, &$state) {
+    //Testing
     global $base_url;
     global $user;
     $form = array();
