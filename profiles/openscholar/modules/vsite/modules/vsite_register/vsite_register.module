@@ -23,7 +23,7 @@ function vsite_register_menu() {
     'title' => 'Create your web site',
     'page callback' => 'drupal_get_form',
     'page arguments' => array('vsite_register_form'),
-    'access arguments' => 'create openscholar site',
+    'access arguments' => array('create openscholar site'),
     'file' => 'vsite_register.form.inc',
   );
 
