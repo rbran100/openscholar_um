@@ -197,7 +197,7 @@ EOF;
                  <title>Faculty Site of $domain</title>
                </head>
                 <body>
-                Welcome to your new site.
+                Welcome to your new site. 
                 </body>
           </html>
 EOF;
@@ -207,7 +207,7 @@ EOF;
             drupal_set_message("Created home folder");
             
             $node = new stdClass();
-            $node->type = 'site_list';
+            $node->type = 'site_info';
             node_object_prepare($node);
             $node->title = $domain;
             $node->field_site_name[LANGUAGE_NONE]['0']['url'] = $domain;
