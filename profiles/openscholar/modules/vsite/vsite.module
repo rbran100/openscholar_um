@@ -139,6 +139,7 @@ function vsite_node_delete($node) {
   }
 
   shell_exec($drush_path . ' queue-run og_membership_orphans');
+  
 }
 
 /**

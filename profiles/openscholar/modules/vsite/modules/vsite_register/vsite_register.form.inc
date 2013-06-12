@@ -171,13 +171,13 @@ function vsite_register_form_submit(&$form, &$state) {
     $site_owner = $user;
 
 //  }
-    //create the vsite
+    //set the domain name which will either be the username or value from form
     if($values['domain'] == ''){
         $domain = $user->name;
     }else{
         $domain = $values['domain'];
     }
-    
+    //if the type chosen is "FTP", then create an SSH site
     if ($values['site_type'] == '1') {
         //check to see if web folder already exists
         if (file_exists('/var/www/html/faculty_sites/' . $domain)){
@@ -234,9 +234,9 @@ EOF;
         drupal_set_message("Site created! Within five minutes it will be available at " . $baseurl . "/" . $domain);
         drupal_goto($base_url);
     } else {
-        //die($values['domain'] . " " . $site_owner->uid);
+        //they've chosed to create an openscholar site
         if ($vsite = vsite_create_vsite($domain, $domain, $site_owner->uid)) {
-            
+            die('<pre>' . print_r($vsite, 1) . '</pre>');
             $node = new stdClass();
             $node->type = 'site_info';
             node_object_prepare($node);
