@@ -238,11 +238,12 @@ EOF;
         if ($vsite = vsite_create_vsite($domain, $domain, $site_owner->uid)) {
             //die(print_r($site_owner));
             //die('<pre>' . print_r($vsite,1) . '</pre>');
-            dpm($vsite->group->nid);
+            //dpm($vsite->group->nid);
             $node = new stdClass();
             $node->type = 'site_info';
             node_object_prepare($node);
-            $node->title = $values['domain'];
+            $node->title = $values['title'];
+            $node->field_nid[LANGUAGE_NONE]['0']['value'] = $vsite->group->nid;
             $node->field_site_name[LANGUAGE_NONE]['0']['url'] = $domain;
             $node->field_site_name[LANGUAGE_NONE]['0']['title'] = $values['title'];
             $node->field_ucm_site_description[LANGUAGE_NONE]['0']['value'] = $values['description'];
