@@ -236,7 +236,7 @@ EOF;
     } else {
         //they've chosed to create an openscholar site
         if ($vsite = vsite_create_vsite($domain, $domain, $site_owner->uid)) {
-            die('<pre>' . print_r($vsite,1) . '</pre>');
+            die('<pre>' . print_r($vsite['purl_provider'],1) . '</pre>');
             $node = new stdClass();
             $node->type = 'site_info';
             node_object_prepare($node);
