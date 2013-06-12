@@ -225,7 +225,7 @@ EOF;
             drupal_set_message("Failed to create home folder.", 'error');
             drupal_goto('site/regsiter');
         }
-        db_query("INSERT INTO {vsite_managed} (`name`, `status`, `process`) VALUES ('%s', %d, %d)", $domain, 1, 0);
+        //db_query("INSERT INTO {vsite_managed} (`name`, `status`, `process`) VALUES ('%s', %d, %d)", $domain, 1, 0);
         //set file flag that indicates an apache restart is necessary.
         touch('/var/www/html/RESTART_APACHE');
         drupal_set_message("Site created! Within five minutes it will be available at " . $baseurl . "/" . $domain);
