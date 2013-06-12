@@ -8,7 +8,7 @@
 function vsite_register_form($form, &$state) {
     global $base_url;
     global $user;
-    die($user->name);
+    //$user->name is the user's UCM network ID
     $form = array();
     $anonymous = ($user->uid == 0);
     $manager = (user_access('create vsite content on behalf') && user_access('administer users'));
