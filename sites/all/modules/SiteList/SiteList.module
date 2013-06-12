@@ -1,0 +1,29 @@
+<?php
+
+function SiteList_help($path, $arg){
+if($path == 'admin/help#SiteList'){
+return t('Display a list of websites hosted at faculty.ucmerced.edu');
+}
+}
+
+function SiteList_block_info(){
+$blocks = array();
+$blocks['site_list'] = array(
+'info' => t('Display a list of websites hosted at faculty.ucmerced.edu.'),
+'cache' => DRUPAL_NO_CACHE,
+);
+return $blocks;
+}
+
+function SiteList_block_view($block_name = ''){
+if ($block_name == 'site_list'){
+    $content = 'Hello, world.';
+    $block = array (
+    'content' => $content,
+    );
+
+    return $block;
+
+    }
+}
+?>
