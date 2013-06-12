@@ -178,7 +178,8 @@ function vsite_register_form_submit(&$form, &$state) {
     if ($values['site_type'] == '1') {
         //check to see if web folder already exists
         if (file_exists('/var/www/html/faculty_sites/' . $domain)){
-            die('That domain already exists');
+            drupal_set_message("That domain already exists.");
+            drupal_goto('site/register');
         }
         //Create alias file in /var/www/html/httpd_conf/aliases
         //This will point http://<sitename>/<domainname> to the user's`1
