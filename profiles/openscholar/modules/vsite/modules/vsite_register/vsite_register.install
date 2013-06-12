@@ -6,3 +6,38 @@
 function vsite_register_install(){
  
 }
+
+/**
+* Implements hook_schema().
+*/
+//function vsite_register_schema() {
+//  $schema['faculty_sites'] = array(
+//     // specification for faculty_sites table
+//     'description' => 'Metadata about faculty websites, whether they are OS sites or SSH sites.',
+//      'fields' => array(
+//          'user' => array(
+//             'description' => 'The faculty members UCM ID',
+//                  'type' => 'varchar',
+//                  'length' => 32,
+//                  'not null' => FALSE,
+//                  'default' => '',
+//                  ),
+//          'domain' => array(
+//              'description' => 'The path of the users website',
+//              'type' => 'varchar',
+//              'length' => 32,
+//              'not null' => FALSE,
+//              'default' => '',
+//          ),
+//          'description' => array(
+//              'description' => 'The description of the website',
+//              'type' => 'varchar',
+//              'length' => 64,
+//              'not null' => FALSE,
+//              'default' => 'UCM Faculty Website',
+//          ),
+//      ),
+//  );
+// 
+//  return $schema;
+//}
