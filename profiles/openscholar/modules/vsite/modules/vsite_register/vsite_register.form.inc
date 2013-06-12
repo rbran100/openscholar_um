@@ -238,7 +238,7 @@ EOF;
         if ($vsite = vsite_create_vsite($domain, $domain, $site_owner->uid)) {
             //die(print_r($site_owner));
             //die('<pre>' . print_r($vsite,1) . '</pre>');
-            dpm($vsite);
+            dpm($vsite->group->nid);
             $node = new stdClass();
             $node->type = 'site_info';
             node_object_prepare($node);
