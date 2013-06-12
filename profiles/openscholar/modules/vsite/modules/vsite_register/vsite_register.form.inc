@@ -222,12 +222,14 @@ EOF;
             node_save($node);
             
         } else {
-            drupal_set_message("Failed to create home folder.");
+            drupal_set_message("Failed to create home folder.", 'error');
+            drupal_goto('site/regsiter');
         }
         db_query("INSERT INTO {vsite_managed} (`name`, `status`, `process`) VALUES ('%s', %d, %d)", $domain, 1, 0);
-        //restart apache
-        exec('sudo apachectl restart');
-        drupal_goto($base_url . $domain);
+        //set file flag that indicates an apache restart is necessary.
+        touch('/var/www/html/RESTART_APACHE');
+        drupal_set_message("Site created! Within five minutes it will be available at " . $baseurl . "/" . $domain);
+        drupal_goto($base_url);
     } else {
         //die($values['domain'] . " " . $site_owner->uid);
         if ($vsite = vsite_create_vsite($domain, $domain, $site_owner->uid)) {
