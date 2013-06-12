@@ -25,8 +25,8 @@ if ($block_name == 'site_list'){
           ->fields('n', array('field_site_name_title', 'field_site_name_url'));
     $result = $query->execute();
     while($record = $result->fetchAssoc()){
-        $content .= '<a href="' . 'field_site_name_url' . '">' . $record['field_site_name_title'] . '</a>';
-        $content .= '<br/>' . $record['field_ucm_site_description_value'] . '<br/>';
+        $content .= '<a href="' . $record['field_site_name_url'] . '">' . $record['field_site_name_title'] . '</a>';
+        $content .= '<br/>' . $record['field_ucm_site_description_value'] . '<br/><br/>';
     }
     
     $block = array (
