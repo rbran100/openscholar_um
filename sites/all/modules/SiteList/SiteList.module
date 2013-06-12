@@ -17,7 +17,7 @@ return $blocks;
 
 function SiteList_block_view($block_name = ''){
 if ($block_name == 'site_list'){
-    $content = '';
+    $content = '<h3>Current Faculty Websites</h3>';
     
     $query = db_select('field_data_field_ucm_site_description', 'd');
     $query->join('field_data_field_site_name', 'n', 'd.entity_id = n.entity_id');
