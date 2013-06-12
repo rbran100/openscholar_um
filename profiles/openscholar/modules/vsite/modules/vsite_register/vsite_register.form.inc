@@ -38,14 +38,17 @@ function vsite_register_form($form, &$state) {
     $form['domain'] = array(
         '#title' => 'Domain name',
         '#type' => 'textfield',
-            //'#value' => $user->name,
+    );
+    
+    $form['title'] = array(
+        '#title' => 'Site title',
+        '#type' => 'textfield',
     );
     
     
     $form['description'] = array(
         '#title' => 'Site description',
         '#type' => 'textfield',
-            //'#value' => $user->name . "'s website.",
     );
 
     $form['mail'] = array(
@@ -217,7 +220,7 @@ EOF;
             node_object_prepare($node);
             $node->title = $domain;
             $node->field_site_name[LANGUAGE_NONE]['0']['url'] = $domain;
-            $node->field_site_name[LANGUAGE_NONE]['0']['title'] = $domain;
+            $node->field_site_name[LANGUAGE_NONE]['0']['title'] = $values['title'];
             $node->field_ucm_site_description[LANGUAGE_NONE]['0']['value'] = $values['description'];
             node_save($node);
             
@@ -239,7 +242,7 @@ EOF;
             node_object_prepare($node);
             $node->title = $values['domain'];
             $node->field_site_name[LANGUAGE_NONE]['0']['url'] = $domain;
-            $node->field_site_name[LANGUAGE_NONE]['0']['title'] = $domain;
+            $node->field_site_name[LANGUAGE_NONE]['0']['title'] = $values['title'];
             $node->field_ucm_site_description[LANGUAGE_NONE]['0']['value'] = $values['description'];
             node_save($node);
            // die(print_r('<pre>' . $node . '</pre>', 1));        
