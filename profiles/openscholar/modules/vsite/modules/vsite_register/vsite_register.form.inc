@@ -6,9 +6,9 @@
  * Provides form for site/register
  */
 function vsite_register_form($form, &$state) {
-    //Testing yet again.
     global $base_url;
     global $user;
+    //die($user->name);
     $form = array();
     $anonymous = ($user->uid == 0);
     $manager = (user_access('create vsite content on behalf') && user_access('administer users'));
@@ -176,11 +176,9 @@ function vsite_register_form_submit(&$form, &$state) {
     }
     
     if ($values['site_type'] == '1') {
-        //die("You have chosen to create an FTP site");
         //Create alias file in /var/www/html/httpd_conf/aliases
         //This will point http://<sitename>/<domainname> to the user's`1
         //web folder
-        //die("Domain: " . $domain);
         $alias_file = '/var/www/html/httpd_conf/aliases/' . $domain;
         $data = <<<EOF
 Alias /$domain /var/www/html/faculty_sites/$domain
@@ -188,10 +186,12 @@ EOF;
         $handle = fopen($alias_file, 'w');
         fwrite($handle, $data);
         fclose($handle);
-        //create home directory in /var/www/html/faculty_sites
+        //create web directory in /var/www/html/faculty_sites
         $result = mkdir('/var/www/html/faculty_sites/' . $domain);
 
         if ($result) {
+            //make the user the owner of the web folder
+            chown('/var/www/html/faculty_sites/' . $domain, $user->name);
             $data = <<<EOF
            <html>
                <head>
@@ -213,7 +213,7 @@ EOF;
             $node->title = $domain;
             $node->field_site_name[LANGUAGE_NONE]['0']['url'] = $domain;
             $node->field_site_name[LANGUAGE_NONE]['0']['title'] = $domain;
-            $node->field_ucm_site_description[LANGUAGE_NONE]['0']['value'] = 'A place to hang your hat.';
+            $node->field_ucm_site_description[LANGUAGE_NONE]['0']['value'] = $values['description'];
             node_save($node);
             
         } else {
@@ -233,7 +233,7 @@ EOF;
             $node->title = $values['domain'];
             $node->field_site_name[LANGUAGE_NONE]['0']['url'] = $domain;
             $node->field_site_name[LANGUAGE_NONE]['0']['title'] = $domain;
-            $node->field_ucm_site_description[LANGUAGE_NONE]['0']['value'] = 'A place to hang your hat.';
+            $node->field_ucm_site_description[LANGUAGE_NONE]['0']['value'] = $values['description'];
             node_save($node);
            // die(print_r('<pre>' . $node . '</pre>', 1));        
             //db_query("INSERT INTO {vsite_managed} (`name`, `status`, `process`) VALUES ('%s', %d, %d)", $values['domain'], 0, 0);
