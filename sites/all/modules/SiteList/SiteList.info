@@ -1,0 +1,6 @@
+name = SiteList
+description = Display a list of websites hosted at faculty.ucmerced.edu
+package = bcgreen
+core = 7.x
+files[] = SiteList.module
+
