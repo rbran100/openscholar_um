@@ -235,7 +235,7 @@ EOF;
         if ($vsite = vsite_create_vsite($domain, $domain, $site_owner->uid)) {
             
             $node = new stdClass();
-            $node->type = 'site_list';
+            $node->type = 'site_info';
             node_object_prepare($node);
             $node->title = $values['domain'];
             $node->field_site_name[LANGUAGE_NONE]['0']['url'] = $domain;

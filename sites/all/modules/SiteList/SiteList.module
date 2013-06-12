@@ -17,7 +17,17 @@ return $blocks;
 
 function SiteList_block_view($block_name = ''){
 if ($block_name == 'site_list'){
-    $content = 'Hello, world.';
+    $content = '';
+    
+    $query = db_select('field_data_field_ucm_site_description', 'd');
+    $query->join('field_data_field_site_name', 'n', 'd.entity_id = n.entity_id');
+    $query->fields('d', array('field_ucm_site_description_value'))
+          ->fields('n', array('field_site_name_title', 'field_site_name_url'));
+    $result = $query->execute();
+    while($record = $result->fetchAssoc()){
+        $content .= print_r($record,1);
+    }
+    
     $block = array (
     'content' => $content,
     );
