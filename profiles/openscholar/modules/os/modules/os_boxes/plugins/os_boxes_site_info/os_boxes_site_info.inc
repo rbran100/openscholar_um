@@ -117,7 +117,28 @@ function os_boxes_site_info_submit($form, &$form_state) {
     // populate the vsite with this information
     $node = $space->group;
     $node->title = $form_state['values']['site_title'];
-
+    
+    //apply this info to the associated site_info
+    //update field_data_field_site_name set field_site_name_title = $node->title where
+    //entity_id from field_data_field_nid = $node->id
+    //
+    //use the table contains the 'maps' between the site_info and vsite
+    $query = db_select('field_data_field_nid', 'n');
+    //retrieve the row where the field_nide_value = this vsites node id
+    $result = $query->fields('n', array('entity_id', 'field_nid_value'))
+                  ->condition('field_nid_value', $node->nid,'=')
+                  ->execute()
+                  ->fetchAssoc();
+    //update the site_info's site_name field
+    //we need the one with the entity_id from the above result
+    //which is the node id of the associated site_info
+    $result = db_update('field_data_field_site_name') 
+  ->fields(array(
+    'field_site_name_title' => $node->title,
+  ))
+  ->condition('entity_id', $result['entity_id'], '>=')
+  ->execute();
+    
     $node->field_site_description[LANGUAGE_NONE][0] = array(
       'value' => $form_state['values']['descrip'],
       'format' => NULL,

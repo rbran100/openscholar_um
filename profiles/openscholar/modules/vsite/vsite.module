@@ -126,6 +126,9 @@ function vsite_node_delete($node) {
                   ->fetchAssoc();
   //die($result['entity_id']);
   node_delete($result['entity_id']);
+  //TODO
+  //Delete the rows from the field tables associated with the deleted site_info node
+  //
   // Invalidate the VSite from Purl's cache.
   $cache = cache_get('purl_modifiers_' . $language->language);
   if (!empty($cache->data) && !empty($cache->data['vsite_path'][$node->purl])) {
