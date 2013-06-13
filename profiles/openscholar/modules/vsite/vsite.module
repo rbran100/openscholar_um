@@ -113,11 +113,11 @@ function vsite_form_og_ui_admin_settings_alter(&$form, &$form_state, $form_id){
  */
 function vsite_node_delete($node) {
       $query = db_select('field_data_field_nid', 'n');
-  $result = $query->fields('n', array('field_nid_value'))
+  $result = $query->fields('n', array('entity_id', 'field_nid_value'))
                   ->condition('field_nid_value', $node->nid,'=')
                   ->execute()
                   ->fetchAssoc();
-  die($result['field_nid_value']);
+  die($result['entity_id']);
   
   
   
