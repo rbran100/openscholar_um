@@ -257,7 +257,7 @@ EOF;
             module_load_include('inc', 'vsite', 'includes/user');
             vsite_user_add($site_owner);
 
-            os_role_grant($site_owner->uid, 'vsite admin', $vsite->id);
+            os_role_grant($site_owner->uid, 'faculty', $vsite->id);
 
             //$message = vsite_register_message($form, $values['domain']);
             $message = "Site created!";
