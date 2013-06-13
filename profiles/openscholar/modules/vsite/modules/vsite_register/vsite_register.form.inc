@@ -38,17 +38,20 @@ function vsite_register_form($form, &$state) {
     $form['domain'] = array(
         '#title' => 'Domain name',
         '#type' => 'textfield',
+        '#default_value' => $user->uid,
     );
     
     $form['title'] = array(
         '#title' => 'Site title',
         '#type' => 'textfield',
+        '#default_value' => $user->uid,
     );
     
     
     $form['description'] = array(
         '#title' => 'Site description',
         '#type' => 'textfield',
+        '#default_value' => $user->uid . "'s Website",
     );
 
     $form['mail'] = array(
