@@ -132,7 +132,7 @@ function os_boxes_site_info_submit($form, &$form_state) {
     //update the site_info's site_name field
     //we need the one with the entity_id from the above result
     //which is the node id of the associated site_info
-    $result = db_update('field_data_field_site_name') 
+    $result_update_name = db_update('field_data_field_site_name') 
   ->fields(array(
     'field_site_name_title' => $node->title,
   ))
@@ -144,7 +144,7 @@ function os_boxes_site_info_submit($form, &$form_state) {
       'format' => NULL,
     );
     
-    $result = db_update('field_data_field_ucm_site_description')
+    $result_update_description = db_update('field_data_field_ucm_site_description')
             ->fields(array(
                'field_ucm_site_description_value' => $node->field_site_description,
             ))
