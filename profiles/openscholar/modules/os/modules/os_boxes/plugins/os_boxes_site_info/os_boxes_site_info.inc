@@ -136,13 +136,21 @@ function os_boxes_site_info_submit($form, &$form_state) {
   ->fields(array(
     'field_site_name_title' => $node->title,
   ))
-  ->condition('entity_id', $result['entity_id'], '>=')
+  ->condition('entity_id', $result['entity_id'], '=')
   ->execute();
     
     $node->field_site_description[LANGUAGE_NONE][0] = array(
       'value' => $form_state['values']['descrip'],
       'format' => NULL,
     );
+    
+    $result = db_update('field_data_field_ucm_site_description')
+            ->fields(array(
+               'field_ucm_site_description_value' => $node->field_site_description,
+            ))
+            ->condition('entity_id', $result['entity_id'], '=')
+            ->execute();
+    
     $node->field_site_address[LANGUAGE_NONE][0] = array(
       'value' => $form_state['values']['address1'].'<br>'.$form_state['values']['address2'],
       'format' => NULL,
