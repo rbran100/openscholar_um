@@ -146,7 +146,7 @@ function os_boxes_site_info_submit($form, &$form_state) {
     
     $result_update_description = db_update('field_data_field_ucm_site_description')
             ->fields(array(
-               'field_ucm_site_description_value' => $node->field_site_description['value'],
+               'field_ucm_site_description_value' => $form_state['values']['descrip'],
             ))
             ->condition('entity_id', $result['entity_id'], '=')
             ->execute();
