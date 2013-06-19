@@ -21,7 +21,8 @@ if ($block_name == 'site_list'){
     $query = db_select('field_data_field_ucm_site_description', 'd');
     $query->join('field_data_field_site_name', 'n', 'd.entity_id = n.entity_id');
     $query->fields('d', array('field_ucm_site_description_value'))
-          ->fields('n', array('field_site_name_title', 'field_site_name_url'));
+          ->fields('n', array('field_site_name_title', 'field_site_name_url'))
+          ->orderBy('field_site_name_title', 'ASC');
     $result = $query->execute();
     while($record = $result->fetchAssoc()){
         $content .= '<a href="' . $record['field_site_name_url'] . '">' . $record['field_site_name_title'] . '</a>';
