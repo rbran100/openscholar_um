@@ -1,0 +1,6 @@
+name = Create_Site_Info
+description = Add site_info's based on folders scanned in faculty_sites directory
+package = bcgreen
+core = 7.x
+files[] = Create_Site_Info.module
+
