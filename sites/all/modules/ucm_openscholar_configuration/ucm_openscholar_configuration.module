@@ -1,7 +1,0 @@
-<?php
-/**
- * @file
- * Code for the UCM OpenScholar Configuration feature.
- */
-
-include_once 'ucm_openscholar_configuration.features.inc';
