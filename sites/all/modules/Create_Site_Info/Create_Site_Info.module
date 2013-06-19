@@ -18,7 +18,14 @@ function show_page(){
     $handle = opendir("/var/www/html/faculty_sites");
     while (false !== ($entry = readdir($handle))) {
         if($entry != '.' && $entry != '..'){
-            $content .= "$entry<br/>\n";
+            $node = new stdClass();
+            $node->type = 'site_info';
+            node_object_prepare($node);
+            $node->title = $entry;
+            $node->field_site_name[LANGUAGE_NONE]['0']['url'] = $entry;
+            $node->field_site_name[LANGUAGE_NONE]['0']['title'] = $entry;
+            $node->field_ucm_site_description[LANGUAGE_NONE]['0']['value'] = $entry . "'s Website";
+            node_save($node);
         }
         
     }
