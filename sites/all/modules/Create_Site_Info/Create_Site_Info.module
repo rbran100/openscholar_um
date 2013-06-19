@@ -2,9 +2,12 @@
 
 
 function Create_Site_Info_menu() {
+    $items = array();
     $items['site/siteinfos'] = array(
     'title' => 'Create site_info nodes.',
         'page callback' => 'show_page',
+        'access arguments' => array('view own profile'), // permission
+    'type' => MENU_LOCAL_TASK,
   );
 
   return $items;
