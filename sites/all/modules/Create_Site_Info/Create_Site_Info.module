@@ -1,35 +1,21 @@
 <?php
 
-function Create_Site_Info_help($path, $arg){
-if($path == 'admin/help#SCreate_Site_Info'){
-return t('Create site_info nodes');
-}
+
+function Create_Site_Info_menu() {
+    $items['site/siteinfos'] = array(
+    'title' => 'Create site_info nodes.',
+        'page callback' => 'show_page',
+  );
+
+  return $items;
 }
 
-function Create_Site_Info_block_info(){
-$blocks = array();
-$blocks['site_list'] = array(
-'info' => t('Create site_info nodes.'),
-'cache' => DRUPAL_NO_CACHE,
-);
-return $blocks;
-}
-
-function Create_Site_Info_block_view($block_name = ''){
-$content = '';
-    if ($block_name == 'Create_Site_Info'){
+function show_page(){
+    $content = '';
     $handle = opendir("/var/www/html/faculty_sites");
     while (false !== ($entry = readdir($handle))) {
         $content .= "$entry<br/>\n";
     }
-    
+    return $content;
 }
-    
-    $block = array (
-    'content' => $content,
-    );
-
-    return $block;
-
-    }
 ?>
