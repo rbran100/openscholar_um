@@ -4,7 +4,12 @@
  */
 
 $(document).ready(function() {
-    $('#sitelist').dataTable();
+    $('#sitelist').dataTable(
+        {
+            "bPaginate": true,
+            "sPaginationType": "full_numbers"
+        }
+        );
 } );
 
 
