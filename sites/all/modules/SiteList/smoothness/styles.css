@@ -1176,6 +1176,12 @@ body .ui-tooltip {
 	border-radius: 8px;
 }
 
-#siteles{
+#sitelist{
     width:100%;
+}
+
+#sitelist_filter{
+    float: left;
+    margin-top: 23px;
+    margin-left:250px;
 }
