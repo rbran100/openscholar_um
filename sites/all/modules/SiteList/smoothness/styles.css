@@ -1181,7 +1181,7 @@ body .ui-tooltip {
 }
 
 #sitelist_filter{
-    float: left;
+    float: right;
     margin-top: -23px;
-    margin-left:225px;
+
 }
