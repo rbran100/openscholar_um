@@ -196,7 +196,7 @@
 .ui-button {
 	display: inline-block;
 	position: relative;
-	padding: 0;
+	padding: 10px;
 	line-height: normal;
 	margin-right: .1em;
 	cursor: pointer;
