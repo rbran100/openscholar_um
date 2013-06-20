@@ -1,5 +1,6 @@
 <?php
 
+drupal_add_js(drupal_get_path('module', 'SiteList') .'../libraries/DataTables/media/js/jquery.js');
 drupal_add_js(drupal_get_path('module', 'SiteList') .'../libraries/DataTables/media/js/jquery.dataTables.min.js');
 drupal_add_js(drupal_get_path('module', 'SiteList') .'../libraries/DataTables/media/js/table_init.js');
 function SiteList_help($path, $arg){
