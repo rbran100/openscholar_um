@@ -2,8 +2,6 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-
-$(document).ready(function() {
     $('#sitelist').dataTable(
         {
         "bJQueryUI": false,    
@@ -11,6 +9,6 @@ $(document).ready(function() {
             "sPaginationType": "full_numbers"
         }
         );
-} );
+
 
 
