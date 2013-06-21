@@ -443,7 +443,7 @@ function vsite_register_validate_elements($values) {
 function _vsite_register_validate($element, &$values) {
 //die("ELEMENT:<br/><pre>".print_r($element, 1)."</pre><br/><br/>VALUES:<br/><pre>".print_r($values,1)."</pre>");
     $msg = array();
-    $invalid_names = array("admin", "user", "site", "users", "home", "node", "poop");
+    $invalid_names = array("user", "site", "users", "home", "node", "poop");
     switch ($element) {
    
         case 'domain':
