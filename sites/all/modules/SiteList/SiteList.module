@@ -36,22 +36,13 @@ if ($block_name == 'site_list'){
           ->fields('n', array('field_site_name_title', 'field_site_name_url'))
           ->orderBy('field_site_name_title', 'ASC');
     $result = $query->execute();
-//    $content .= '<table id="sitelist">' . "\n";
-//    $content .= "<thead><tr><th>Site</th><th>Description</th></tr></thead>\n";
-//    $content .= "<tbody>\n";
 
     while($record = $result->fetchAssoc()){
-//        $content .= '<tr><td><a href="' . $record['field_site_name_url'] . '">' . $record['field_site_name_title'] . "</a></td>\n";
-//        $content .= '<td>' . $record['field_ucm_site_description_value'] . "</td></tr>\n";
-        
+
         $field1 = '<a href="' . $record['field_site_name_url'] . '">' . $record['field_site_name_title'] . '</a>';
         $field2 = $record['field_ucm_site_description_value'];
         array_push($rows, array($field1, $field2));
     }
-//    $content .= "</tbody>\n";
-//    $content .= "</table>";
-    
-    
     
     // Table settings.
 $attributes['datatable_options'] = array(
@@ -76,12 +67,6 @@ $header = array(
     ),
   ),
 );
-// Table data.
-//$rows = array(
-//  array('test1', 'test2'),
-//  array('test2', 'test3'),
-//  // ...
-//);
  
 // Render using Drupal's render API.
 $build['datatable'] = array(
@@ -98,9 +83,6 @@ $variables = array(
   'rows' => $rows,
 );
 $content .= theme('datatable', $variables);
-
-
-
 
     $block = array (
     'content' => $content,
