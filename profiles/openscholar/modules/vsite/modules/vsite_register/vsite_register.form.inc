@@ -440,11 +440,11 @@ function vsite_register_validate_elements($values) {
 function _vsite_register_validate($element, &$values) {
 //die("ELEMENT:<br/><pre>".print_r($element, 1)."</pre><br/><br/>VALUES:<br/><pre>".print_r($values,1)."</pre>");
     $msg = array();
-
+    $invalid_names = array("admin", "user", "site", "users", "home", "node", "poop");
     switch ($element) {
    
         case 'domain':
-            if (strlen($values['domain']) < 3 || !valid_url($values['domain']) || !_vsite_register_valid_url($values['domain'])) {
+            if (in_array($values['domain'], $invalid_names) || strlen($values['domain']) < 3 || !valid_url($values['domain']) || !_vsite_register_valid_url($values['domain'])) {
                 $msg[] = t('Invalid URL specified.');
             }
             if (($purl = purl_load(array('value' => $values['domain'], 'provider' => 'spaces_og'), TRUE)) || menu_get_item($values['domain'])) {
