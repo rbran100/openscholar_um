@@ -17,18 +17,18 @@ $(document).ready( function () {
 	
 	
 	oTest.fnTest( 
-		"Two arguments passed",
+		"One argument passed (for DOM!)",
 		function () {
 			oSession.fnRestore();
 			
 			mPass = -1;
 			$('#example').dataTable( {
 				"fnInitComplete": function ( ) {
-					mPass = arguments.length===2 && arguments[1]===undefined;
+					mPass = arguments.length;
 				}
 			} );
 		},
-		function () { return mPass; }
+		function () { return mPass == 1; }
 	);
 	
 	

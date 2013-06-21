@@ -6,7 +6,7 @@ oTest.fnStart( "aoColumns.sName" );
 $(document).ready( function () {
 	/* Check the default */
 	var oTable = $('#example').dataTable( {
-		"sAjaxSource": "../../../examples/ajax/sources/arrays.txt",
+		"sAjaxSource": "../../../examples/examples_support/json_source.txt",
 		"aoColumns": [
 			null,
 			null,

@@ -4,7 +4,7 @@ oTest.fnStart( "aaSortingFixed" );
 $(document).ready( function () {
 	/* Check the default */
 	var oTable = $('#example').dataTable( {
-		"sAjaxSource": "../../../examples/ajax/sources/arrays.txt"
+		"sAjaxSource": "../../../examples/examples_support/json_source.txt"
 	} );
 	var oSettings = oTable.fnSettings();
 	
@@ -22,7 +22,7 @@ $(document).ready( function () {
 		function () {
 			oSession.fnRestore();
 			$('#example').dataTable( {
-				"sAjaxSource": "../../../examples/ajax/sources/arrays.txt",
+				"sAjaxSource": "../../../examples/examples_support/json_source.txt",
 				"aaSortingFixed": [['0','asc']],
 				"fnInitComplete": function () {
 					$('#example thead th:eq(1)').click();
@@ -46,7 +46,7 @@ $(document).ready( function () {
 		function () {
 			oSession.fnRestore();
 			$('#example').dataTable( {
-				"sAjaxSource": "../../../examples/ajax/sources/arrays.txt",
+				"sAjaxSource": "../../../examples/examples_support/json_source.txt",
 				"aaSortingFixed": [['3','asc']]
 			} );
 			$('#example thead th:eq(1)').click();

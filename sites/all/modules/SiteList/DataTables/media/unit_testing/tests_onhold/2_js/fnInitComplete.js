@@ -19,7 +19,7 @@ $(document).ready( function () {
 	
 	
 	oTest.fnTest( 
-		"Two arguments passed",
+		"One argument passed (for DOM!)",
 		function () {
 			oSession.fnRestore();
 			
@@ -27,11 +27,11 @@ $(document).ready( function () {
 			$('#example').dataTable( {
 				"aaData": gaaData,
 				"fnInitComplete": function ( ) {
-					mPass = arguments.length===2 && arguments[1]===undefined;
+					mPass = arguments.length;
 				}
 			} );
 		},
-		function () { return mPass; }
+		function () { return mPass == 1; }
 	);
 	
 	

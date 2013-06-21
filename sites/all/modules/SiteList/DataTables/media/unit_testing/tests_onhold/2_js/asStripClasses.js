@@ -1,5 +1,5 @@
 // DATA_TEMPLATE: js_data
-oTest.fnStart( "asStripeClasses" );
+oTest.fnStart( "asStripClasses" );
 
 $(document).ready( function () {
 	/* Check the default */
@@ -36,7 +36,7 @@ $(document).ready( function () {
 			oSession.fnRestore();
 			$('#example').dataTable( {
 				"aaData": gaaData,
-				"asStripeClasses": []
+				"asStripClasses": []
 			} );
 		},
 		function () {
@@ -54,7 +54,7 @@ $(document).ready( function () {
 			oSession.fnRestore();
 			$('#example').dataTable( {
 				"aaData": gaaData,
-				"asStripeClasses": [ 'test1', 'test2' ]
+				"asStripClasses": [ 'test1', 'test2' ]
 			} );
 		},
 		function () {
@@ -73,7 +73,7 @@ $(document).ready( function () {
 			oSession.fnRestore();
 			$('#example').dataTable( {
 				"aaData": gaaData,
-				"asStripeClasses": [ 'test1', 'test2', 'test3', 'test4' ]
+				"asStripClasses": [ 'test1', 'test2', 'test3', 'test4' ]
 			} );
 		},
 		function () {

@@ -6,7 +6,7 @@ oTest.fnStart( "bServerSide" );
 $(document).ready( function () {
 	/* Check the default */
 	var oTable = $('#example').dataTable( {
-		"sAjaxSource": "../../../examples/ajax/sources/arrays.txt"
+		"sAjaxSource": "../../../examples/examples_support/json_source.txt"
 	} );
 	var oSettings = oTable.fnSettings();
 	

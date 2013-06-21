@@ -26,7 +26,7 @@ $(document).ready( function () {
 	);
 	
 	oTest.fnTest( 
-		"Confirm that fnRender passes two arguments with four parameters",
+		"Confirm that fnRender passes one argument (an object) with three parameters",
 		function () {
 			mTmp = true;
 			oSession.fnRestore();
@@ -35,12 +35,38 @@ $(document).ready( function () {
 				"aoColumns": [
 					null,
 					{ "fnRender": function (a) {
-						if ( arguments.length != 2 || typeof a.iDataRow=='undefined' ||
-						 	typeof a.iDataColumn=='undefined' || typeof a.aData=='undefined' ||
-						 	typeof a.mDataProp=='undefined' )
+						if ( arguments.length != 1 || typeof a.iDataRow=='undefined' ||
+						 	typeof a.iDataColumn=='undefined' || typeof a.aData=='undefined' )
 						{
 							mTmp = false;
 						}
+						return a.aData[a.iDataColumn];
+					} },
+					null,
+					null,
+					null
+				]
+			} );
+		},
+		function () { return mTmp; }
+	);
+	
+	oTest.fnTest( 
+		"fnRender iDataColumn is row number",
+		function () {
+			var iCount = 0;
+			mTmp = true;
+			oSession.fnRestore();
+			oTable = $('#example').dataTable( {
+				"aaData": gaaData,
+				"aoColumns": [
+					null,
+					{ "fnRender": function (a) {
+						if ( iCount != a.iDataRow )
+						{
+							mTmp = false;
+						}
+						iCount++;
 						return a.aData[a.iDataColumn];
 					} },
 					null,

@@ -6,7 +6,7 @@ oTest.fnStart( "oLanguage.oPaginate" );
 $(document).ready( function () {
 	/* Check the default */
 	var oTable = $('#example').dataTable( {
-		"sAjaxSource": "../../../examples/ajax/sources/arrays.txt",
+		"sAjaxSource": "../../../examples/examples_support/json_source.txt",
 		"sPaginationType": "full_numbers"
 	} );
 	var oSettings = oTable.fnSettings();
@@ -43,7 +43,7 @@ $(document).ready( function () {
 		function () {
 			oSession.fnRestore();
 			oTable = $('#example').dataTable( {
-				"sAjaxSource": "../../../examples/ajax/sources/arrays.txt",
+				"sAjaxSource": "../../../examples/examples_support/json_source.txt",
 				"sPaginationType": "full_numbers",
 				"oLanguage": {
 					"oPaginate": {

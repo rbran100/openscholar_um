@@ -1,5 +1,5 @@
 // DATA_TEMPLATE: dom_data
-oTest.fnStart( "2840 - Restore table width on fnDestroy" );
+oTest.fnStart( "2840 - Restore table width on fnDestory" );
 
 $(document).ready( function () {
 	document.cookie = "";

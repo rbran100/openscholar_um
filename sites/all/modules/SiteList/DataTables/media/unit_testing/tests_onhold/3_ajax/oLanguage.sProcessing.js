@@ -4,7 +4,7 @@ oTest.fnStart( "oLanguage.sProcessing" );
 $(document).ready( function () {
 	/* Check the default */
 	var oTable = $('#example').dataTable( {
-		"sAjaxSource": "../../../examples/ajax/sources/arrays.txt",
+		"sAjaxSource": "../../../examples/examples_support/json_source.txt",
 		"bProcessing": true
 	} );
 	var oSettings = oTable.fnSettings();
@@ -27,7 +27,7 @@ $(document).ready( function () {
 		function () {
 			oSession.fnRestore();
 			oTable = $('#example').dataTable( {
-				"sAjaxSource": "../../../examples/ajax/sources/arrays.txt",
+				"sAjaxSource": "../../../examples/examples_support/json_source.txt",
 				"bProcessing": true,
 				"oLanguage": {
 					"sProcessing": "unit test"

@@ -21,7 +21,7 @@ oTest.fnTest(
 
 $(document).ready( function () {
 	var oInit = {
-		"sAjaxSource": "../../../examples/ajax/sources/arrays.txt"
+		"sAjaxSource": "../../../examples/examples_support/json_source.txt"
 	};
 	$('#example').dataTable( oInit );
 	
