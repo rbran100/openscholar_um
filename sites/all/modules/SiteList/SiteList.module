@@ -28,22 +28,68 @@ function SiteList_block_view($block_name = ''){
    // drupal_add_js
 
 if ($block_name == 'site_list'){
-    $content = '<h2>Website Directory</h2><br/>';
-    $query = db_select('field_data_field_ucm_site_description', 'd');
-    $query->join('field_data_field_site_name', 'n', 'd.entity_id = n.entity_id');
-    $query->fields('d', array('field_ucm_site_description_value'))
-          ->fields('n', array('field_site_name_title', 'field_site_name_url'))
-          ->orderBy('field_site_name_title', 'ASC');
-    $result = $query->execute();
-    $content .= '<table id="sitelist">' . "\n";
-    $content .= "<thead><tr><th>Site</th><th>Description</th></tr></thead>\n";
-    $content .= "<tbody>\n";
-    while($record = $result->fetchAssoc()){
-        $content .= '<tr><td><a href="' . $record['field_site_name_url'] . '">' . $record['field_site_name_title'] . "</a></td>\n";
-        $content .= '<td>' . $record['field_ucm_site_description_value'] . "</td></tr>\n";
-    }
-    $content .= "</tbody>\n";
-    $content .= "</table>";
+//    $content = '<h2>Website Directory</h2><br/>';
+//    $query = db_select('field_data_field_ucm_site_description', 'd');
+//    $query->join('field_data_field_site_name', 'n', 'd.entity_id = n.entity_id');
+//    $query->fields('d', array('field_ucm_site_description_value'))
+//          ->fields('n', array('field_site_name_title', 'field_site_name_url'))
+//          ->orderBy('field_site_name_title', 'ASC');
+//    $result = $query->execute();
+//    $content .= '<table id="sitelist">' . "\n";
+//    $content .= "<thead><tr><th>Site</th><th>Description</th></tr></thead>\n";
+//    $content .= "<tbody>\n";
+//    while($record = $result->fetchAssoc()){
+//        $content .= '<tr><td><a href="' . $record['field_site_name_url'] . '">' . $record['field_site_name_title'] . "</a></td>\n";
+//        $content .= '<td>' . $record['field_ucm_site_description_value'] . "</td></tr>\n";
+//    }
+//    $content .= "</tbody>\n";
+//    $content .= "</table>";
+    
+    
+    
+    // Table settings.
+$attributes['datatable_options'] = array(
+  'bFilter'   => TRUE,
+  'bInfo'     => TRUE,
+);
+// Define table columns
+$header = array(
+  array(
+    'data' => t('Column 1'),
+    'datatable_options' => array(
+      'bSortable' => TRUE,
+      'bSearchable' => TRUE,
+    ),
+  ),
+  array(
+    'data' => t('Column 2'),
+    'datatable_options' => array(
+      'bSortable' => TRUE,
+      'bSearchable' => TRUE,
+    ),
+  ),
+);
+// Table data.
+$rows = array(
+  array('test1', 'test2'),
+  array('test2', 'test3'),
+  // ...
+);
+ 
+// Render using Drupal's render API.
+$build['datatable'] = array(
+  '#theme' => 'datatable',
+  '#header' => $header,
+  '#rows' => $rows,
+  '#attributes' => $attributes,
+);
+ 
+
+$content = theme('datatable', $variables);
+
+
+
+
     $block = array (
     'content' => $content,
     );
