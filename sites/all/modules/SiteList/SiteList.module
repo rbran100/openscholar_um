@@ -2,7 +2,7 @@
 function SiteList_preprocess_page(&$variables) {
 
 drupal_add_css(drupal_get_path('module', 'SiteList') .'/smoothness/styles.css');
-
+drupal_add_js(drupal_get_path('module', 'SiteList') .'/DataTables/media/js/jquery.js');
 drupal_add_js(drupal_get_path('module', 'SiteList') .'/DataTables/media/js/jquery.dataTables.js');
 drupal_add_js(drupal_get_path('module', 'SiteList') .'/DataTables/media/js/table_init.js');
 
