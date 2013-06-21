@@ -28,7 +28,7 @@ function SiteList_block_view($block_name = ''){
    // drupal_add_js
 
 if ($block_name == 'site_list'){
-//    $content = '<h2>Website Directory</h2><br/>';
+    $content = '<h2>Website Directory</h2><br/>';
 //    $query = db_select('field_data_field_ucm_site_description', 'd');
 //    $query->join('field_data_field_site_name', 'n', 'd.entity_id = n.entity_id');
 //    $query->fields('d', array('field_ucm_site_description_value'))
@@ -55,14 +55,14 @@ $attributes['datatable_options'] = array(
 // Define table columns
 $header = array(
   array(
-    'data' => t('Column 1'),
+    'data' => t('Title'),
     'datatable_options' => array(
       'bSortable' => TRUE,
       'bSearchable' => TRUE,
     ),
   ),
   array(
-    'data' => t('Column 2'),
+    'data' => t('Description'),
     'datatable_options' => array(
       'bSortable' => TRUE,
       'bSearchable' => TRUE,
@@ -90,7 +90,7 @@ $variables = array(
   'header' => $header,
   'rows' => $rows,
 );
-$content = theme('datatable', $variables);
+$content .= theme('datatable', $variables);
 
 
 
