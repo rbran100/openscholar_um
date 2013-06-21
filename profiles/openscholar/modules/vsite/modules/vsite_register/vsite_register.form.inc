@@ -35,11 +35,11 @@ function vsite_register_form($form, &$state) {
         '#suffix' => '</div>',
     );
 
-//    $form['domain'] = array(
-//        '#title' => 'Domain name',
-//        '#type' => 'textfield',
-//        '#default_value' => $user->name,
-//    );
+    $form['domain'] = array(
+        '#title' => 'Domain name',
+        '#type' => 'hidden',
+        '#default_value' => $user->name,
+    );
     
     $form['title'] = array(
         '#title' => 'Site title',
