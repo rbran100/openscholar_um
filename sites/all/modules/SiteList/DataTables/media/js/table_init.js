@@ -6,7 +6,7 @@
 $(document).ready(function() {
     $('#sitelist').dataTable(
         {
-        "bJQueryUI": true,    
+        "bJQueryUI": false,    
         "bPaginate": true,
             "sPaginationType": "full_numbers"
         }
