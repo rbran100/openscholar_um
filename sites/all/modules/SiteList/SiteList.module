@@ -84,7 +84,12 @@ $build['datatable'] = array(
   '#attributes' => $attributes,
 );
  
-
+// Or, render using a theme function.
+$variables = array(
+  'attributes' => $attributes,
+  'header' => $header,
+  'rows' => $rows,
+);
 $content = theme('datatable', $variables);
 
 
