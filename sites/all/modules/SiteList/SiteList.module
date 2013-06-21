@@ -1,4 +1,13 @@
 <?php
+function SiteList_preprocess_page(&$variables) {
+
+drupal_add_css(drupal_get_path('module', 'SiteList') .'/smoothness/styles.css');
+drupal_add_js(drupal_get_path('module', 'SiteList') .'/DataTables/media/js/jquery.js');
+drupal_add_js(drupal_get_path('module', 'SiteList') .'/DataTables/media/js/jquery.dataTables.js');
+drupal_add_js(drupal_get_path('module', 'SiteList') .'/DataTables/media/js/table_init.js');
+
+}
+
 
 function SiteList_help($path, $arg){
 if($path == 'admin/help#SiteList'){
@@ -17,10 +26,7 @@ return $blocks;
 
 function SiteList_block_view($block_name = ''){
    // drupal_add_js
-  //  drupal_add_css(drupal_get_path('module', 'SiteList') .'/smoothness/styles.css');
-//drupal_add_js(drupal_get_path('module', 'SiteList') .'/DataTables/media/js/jquery.js');
-//drupal_add_js(drupal_get_path('module', 'SiteList') .'/DataTables/media/js/jquery.dataTables.js');
-//drupal_add_js(drupal_get_path('module', 'SiteList') .'/DataTables/media/js/table_init.js');
+
 if ($block_name == 'site_list'){
     $content = '<h2>Website Directory</h2><br/>';
     $query = db_select('field_data_field_ucm_site_description', 'd');
