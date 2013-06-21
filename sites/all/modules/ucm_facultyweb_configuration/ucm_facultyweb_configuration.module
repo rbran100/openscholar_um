@@ -1,7 +1,0 @@
-<?php
-/**
- * @file
- * Code for the UCM FacultyWeb Configuration feature.
- */
-
-include_once 'ucm_facultyweb_configuration.features.inc';
