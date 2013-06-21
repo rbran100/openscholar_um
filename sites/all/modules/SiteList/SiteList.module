@@ -28,20 +28,26 @@ function SiteList_block_view($block_name = ''){
    // drupal_add_js
 
 if ($block_name == 'site_list'){
+    $rows = array();
     $content = '<h2>Website Directory</h2><br/>';
-//    $query = db_select('field_data_field_ucm_site_description', 'd');
-//    $query->join('field_data_field_site_name', 'n', 'd.entity_id = n.entity_id');
-//    $query->fields('d', array('field_ucm_site_description_value'))
-//          ->fields('n', array('field_site_name_title', 'field_site_name_url'))
-//          ->orderBy('field_site_name_title', 'ASC');
-//    $result = $query->execute();
+    $query = db_select('field_data_field_ucm_site_description', 'd');
+    $query->join('field_data_field_site_name', 'n', 'd.entity_id = n.entity_id');
+    $query->fields('d', array('field_ucm_site_description_value'))
+          ->fields('n', array('field_site_name_title', 'field_site_name_url'))
+          ->orderBy('field_site_name_title', 'ASC');
+    $result = $query->execute();
 //    $content .= '<table id="sitelist">' . "\n";
 //    $content .= "<thead><tr><th>Site</th><th>Description</th></tr></thead>\n";
 //    $content .= "<tbody>\n";
-//    while($record = $result->fetchAssoc()){
+
+    while($record = $result->fetchAssoc()){
 //        $content .= '<tr><td><a href="' . $record['field_site_name_url'] . '">' . $record['field_site_name_title'] . "</a></td>\n";
 //        $content .= '<td>' . $record['field_ucm_site_description_value'] . "</td></tr>\n";
-//    }
+        
+        $field1 = '<a href="' . $record['field_site_name_url'] . '">' . $record['field_site_name_title'] . '</a>';
+        $field2 = $record['field_ucm_site_description_value'];
+        array_push($rows, array($field1, $field2));
+    }
 //    $content .= "</tbody>\n";
 //    $content .= "</table>";
     
@@ -70,11 +76,11 @@ $header = array(
   ),
 );
 // Table data.
-$rows = array(
-  array('test1', 'test2'),
-  array('test2', 'test3'),
-  // ...
-);
+//$rows = array(
+//  array('test1', 'test2'),
+//  array('test2', 'test3'),
+//  // ...
+//);
  
 // Render using Drupal's render API.
 $build['datatable'] = array(
