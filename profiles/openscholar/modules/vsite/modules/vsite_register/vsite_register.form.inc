@@ -184,9 +184,7 @@ function vsite_register_form_submit(&$form, &$state) {
         //$domain = $values['domain'];
         $domain = $user->name;
     }
-    if($domain = 'admin'){
-        $domain = 'adminsite';
-    }
+
     //if the type chosen is "FTP", then create an SSH site
     if ($values['site_type'] == '1') {
         //check to see if web folder already exists
