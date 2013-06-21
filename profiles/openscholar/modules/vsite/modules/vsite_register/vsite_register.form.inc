@@ -28,18 +28,18 @@ function vsite_register_form($form, &$state) {
         '#description' => t('Choose whether you would like to use our site building software or build your own site from scratch.'),
         '#default_value' => 0,
         '#options' => array(
-            0 => t('I want to use the tools available through the site builder and have the UC Merced brand'),
+            0 => t('I want to use the tools available through the OpenScholar site builder and have the UC Merced brand'),
             1 => t('I will build my own site on my local machine and just upload it')
         ),
         '#prefix' => '<div id="site-type-item">',
         '#suffix' => '</div>',
     );
 
-    $form['domain'] = array(
-        '#title' => 'Domain name',
-        '#type' => 'textfield',
-        '#default_value' => $user->name,
-    );
+//    $form['domain'] = array(
+//        '#title' => 'Domain name',
+//        '#type' => 'textfield',
+//        '#default_value' => $user->name,
+//    );
     
     $form['title'] = array(
         '#title' => 'Site title',
@@ -178,7 +178,8 @@ function vsite_register_form_submit(&$form, &$state) {
     if($values['domain'] == ''){
         $domain = $user->name;
     }else{
-        $domain = $values['domain'];
+        //$domain = $values['domain'];
+        $domain = $user->name;
     }
     //if the type chosen is "FTP", then create an SSH site
     if ($values['site_type'] == '1') {
