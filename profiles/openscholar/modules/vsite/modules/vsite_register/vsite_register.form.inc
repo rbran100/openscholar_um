@@ -37,7 +37,7 @@ function vsite_register_form($form, &$state) {
 
     $form['domain'] = array(
         '#title' => 'Domain name',
-        '#type' => 'textfield',
+        '#type' => 'hidden',
         '#attributes' => array(
             'readonly' => 'readonly',
         ),
