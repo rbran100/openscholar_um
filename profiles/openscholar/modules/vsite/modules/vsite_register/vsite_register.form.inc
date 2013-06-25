@@ -24,6 +24,7 @@ function vsite_register_form($form, &$state) {
 
     $form['site_type'] = array(
         '#type' => 'radios',
+        '#name' => 'site_type',
         '#title' => t('Type of Site'),
         '#description' => t('Choose whether you would like to use our site building software or build your own site from scratch.'),
         '#default_value' => 0,
@@ -39,6 +40,11 @@ function vsite_register_form($form, &$state) {
         '#title' => 'Domain name',
         '#type' => 'textfield',
         '#default_value' => $user->name,
+        '#states' => array(
+      'invisible' => array(
+       ':input[name="site_type"]' => array('value' => 1),
+      ),
+    ),
     );
     
     $form['title'] = array(
