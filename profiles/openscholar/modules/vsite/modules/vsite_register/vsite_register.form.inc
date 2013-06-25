@@ -37,10 +37,7 @@ function vsite_register_form($form, &$state) {
 
     $form['domain'] = array(
         '#title' => 'Domain name',
-        '#type' => 'hidden',
-        '#attributes' => array(
-            'readonly' => 'readonly',
-        ),
+        '#type' => 'textfield',
         '#default_value' => $user->name,
     );
     
@@ -182,7 +179,7 @@ function vsite_register_form_submit(&$form, &$state) {
         $domain = $user->name;
     }else{
         //$domain = $values['domain'];
-        $domain = $user->name;
+        $domain = $values['domain'];
     }
 
     //if the type chosen is "FTP", then create an SSH site
