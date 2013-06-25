@@ -100,8 +100,6 @@ Drupal.media.popups.mediaBrowser = function (onSelect, globalOptions, pluginOpti
 
 Drupal.media.popups.mediaBrowser.mediaBrowserOnLoad = function (e) {
   var options = e.data;
-  if (this.contentWindow.Drupal.media.browser == undefined) return;
-
   if (this.contentWindow.Drupal.media.browser.selectedMedia.length > 0) {
     var ok = (Drupal && Drupal.t) ? Drupal.t('OK') : 'OK';
     var ok_func = $(this).dialog('option', 'buttons')[ok];
@@ -313,10 +311,7 @@ Drupal.media.popups.getDialogOptions = function () {
       backgroundColor: '#000000',
       opacity: 0.4
     },
-    zIndex: 10000,
-    close: function (event, ui) {
-      $(event.target).remove();
-    }
+    zIndex: 10000
   };
 };
 
