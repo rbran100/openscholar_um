@@ -1,6 +1,6 @@
 (function ($) {
 
-Drupal.behaviors.mediaGalleryFieldsetSummaries = {
+Drupal.behaviors.menuFieldsetSummaries = {
   attach: function (context) {
     $('fieldset.block-form', context).drupalSetSummary(function (context) {
       if ($('#edit-media-gallery-expose-block-und', context).attr('checked')) {

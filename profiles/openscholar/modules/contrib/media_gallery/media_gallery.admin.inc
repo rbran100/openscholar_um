@@ -1,11 +1,6 @@
 <?php
 
 /**
- * @file
- * This file contains the admin functions for the Media Gallery module.
- */
-
-/**
  * The Galleries settings page will just return the term edit form for the "all galleries" tid.
  *
  */

@@ -1,11 +1,6 @@
 <?php
 
 /**
- * @file
- * This file provides easier access on entity properties and methods.
- */
-
-/**
  * Decorates an entity to provide getters/setters.
  *
  * @example
@@ -20,36 +15,38 @@
  *
  * // Gets the 2nd value of body in spanish
  * $node->getValue('body', 2, 'esp');
- */
+ */ 
 class FieldsRSIPreventor {
   private $entity;
-
+  
   function __construct($entity) {
     // Prevent this thing from chaining if people accidentally use it twice.
-    if ($entity instanceof FieldRSIPreventor) {
+    if (is_a($entity, 'FieldRSIPreventor')) {
       $entity = $entity->entity;
     }
     $this->entity = $entity;
   }
-
+  
   function getValue($field_name, $delta = 0, $language = LANGUAGE_NONE) {
     if ($item = $this->getItem($field_name, $delta, $language)) {
       return $item['value'];
     }
   }
-
+  
   function getItem($field_name, $delta = 0, $language = LANGUAGE_NONE) {
     if (!isset($this->entity->{$field_name}[$language]) || !isset($this->entity->{$field_name}[$language][$delta])) {
       return FALSE;
     }
     return $this->entity->{$field_name}[$language][$delta];
   }
-
+  
   function __get($key) {
     return $this->entity->{$key};
   }
-
+  
   function __set($key, $value) {
     $this->entity->{$key} = $value;
   }
 }
+
+?>
