@@ -246,8 +246,8 @@ EOF;
         drupal_set_message("Site created! Within five minutes it will be available at " . $baseurl . "/" . $domain);
         drupal_goto($base_url);
     } else {
-        //they've chosed to create an openscholar site
-        if ($vsite = vsite_create_vsite($domain, $domain, $site_owner->uid)) {
+        //they've chosen to create an openscholar site
+        if ($vsite = vsite_create_vsite($values['title'], $domain, $site_owner->uid)) {
             //die(print_r($site_owner));
             //die('<pre>' . print_r($vsite,1) . '</pre>');
             //dpm($vsite->group->nid);
