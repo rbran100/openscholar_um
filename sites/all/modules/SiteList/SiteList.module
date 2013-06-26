@@ -49,6 +49,7 @@ $attributes['datatable_options'] = array(
   'bFilter'   => TRUE,
   'bInfo'     => TRUE,
   'bJQueryUI' => TRUE,
+  'iDisplayLength' => 25,
 );
 // Define table columns
 $header = array(
