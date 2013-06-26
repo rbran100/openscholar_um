@@ -10,7 +10,7 @@ function vsite_register_form($form, &$state) {
     global $user;
     $vsites = vsite_get_vsite_by_owner($user->uid);
     if(count($vsites) > 0){
-        drupal_set_message("OpenScholar Site Already Registered.");
+        drupal_set_message("You have already registered a site.", "error");
         drupal_goto("<front>");
     }
     //$user->name is the user's UCM network ID
