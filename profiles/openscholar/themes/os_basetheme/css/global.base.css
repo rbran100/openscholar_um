@@ -652,4 +652,10 @@ td img {
 
 /** main menu on front page of site **/
 #block-system-main-menu li a:hover{background: #8be;color:#000;}
-#block-system-main-menu li a{padding: 10px;margin-top:-10px;}
+#block-system-main-menu li a{
+padding: 10px;
+margin-top:-10px;
+margin-left: 10px;
+margin-right: 10px;
+border-right: solid 1px gray;
+}
