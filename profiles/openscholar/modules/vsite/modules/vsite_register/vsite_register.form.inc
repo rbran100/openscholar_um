@@ -597,7 +597,7 @@ function vsite_register_notify_user($vsite) {
         '!site' => variable_get('site_name', 'OpenScholar'),
         '!scholar_site_url' => $scholar_site_url,
         '!login_url' => user_pass_reset_url($new_user),
-        '!site_login_uri' => url($base_url . '/' . $vsite->group->title . '/home', array('absolute' => TRUE)),
+        '!site_login_uri' => url($base_url . '/user', array('absolute' => TRUE)),
         '!uri' => $base_url,
         '!uri_brief' => preg_replace('!^https?://!', '', $base_url),
         '!mailto' => $new_user->mail,
