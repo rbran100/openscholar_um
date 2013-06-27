@@ -649,3 +649,7 @@ td img {
   float:left;
   margin: 0 1.5em .5em 0;
 }
+
+/** main menu on front page of site **/
+#block-system-main-menu li a:hover{background: #8be;color:#000;}
+#block-system-main-menu li a{padding: 10px;margin-top:-10px;}
