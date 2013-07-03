@@ -266,6 +266,13 @@ EOF;
             $node->field_site_name[LANGUAGE_NONE]['0']['title'] = $values['title'];
             $node->field_ucm_site_description[LANGUAGE_NONE]['0']['value'] = $values['description'];
             node_save($node);
+            //IF THE USER HAS A NON-OS SITE, DELETE THE APACHE ALIAS DIRECTIVE TO THE OLD SITE
+            if(file_exists('/var/www/html/faculty_sites/' . $domain)){
+                unlink('/var/www/html/httpd_conf/aliases/' . $domain);
+                touch('/var/www/html/RESTART_APACHE');
+                drupal_set_message("Site created! Within five minutes it will be available at " . $baseurl . "/" . $domain);
+                drupal_goto($base_url);
+            }
            // die(print_r('<pre>' . $node . '</pre>', 1));        
             //db_query("INSERT INTO {vsite_managed} (`name`, `status`, `process`) VALUES ('%s', %d, %d)", $values['domain'], 0, 0);
             //add user to vsite
