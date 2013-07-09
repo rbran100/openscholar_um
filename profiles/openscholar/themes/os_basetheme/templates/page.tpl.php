@@ -23,6 +23,7 @@
 			<!--header regions beg-->
 			<header id="header" class="clearfix" role="banner">
 			 <div id="header-container">
+                             <a href="http://faculty.ucmerced.edu">
 				 <div id="header-panels" class="at-panel gpanel panel-display three-col clearfix">
 					  <?php print render($page['header_top']); ?>
 					  <?php print render($page['header_second']); ?>
@@ -30,6 +31,7 @@
 					  <?php print render($page['header_third']); ?>
 					  <?php print render($page['header_bottom']); ?>
 				 </div>
+                             </a>
 			  </div>
 		  </header>
       <!--header regions end-->
