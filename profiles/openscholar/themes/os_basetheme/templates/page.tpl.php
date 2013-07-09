@@ -13,13 +13,7 @@
 
 		<?php print $messages; ?>
 
-		<?php if (
-			$page['header_top'] ||
-			$page['header_first'] ||
-			$page['header_second'] ||
-			$page['header_third'] ||
-			$page['header_bottom']
-			): ?>
+
 			<!--header regions beg-->
 			<header id="header" class="clearfix" role="banner">
 			 <div id="header-container">
@@ -35,7 +29,7 @@
 			  </div>
 		  </header>
       <!--header regions end-->
-		<?php endif; ?>
+
 
 		<?php if($menu_bar = render($page['menu_bar'])): ?>
 		  <!--main menu region beg-->
