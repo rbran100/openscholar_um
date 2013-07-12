@@ -3,4 +3,4 @@ sites/default/files/private
 sites/default/files/public
 sites/default/files/tmp
 sites/default/files
-
+gitpull.php
