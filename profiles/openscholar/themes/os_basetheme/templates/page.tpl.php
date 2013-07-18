@@ -16,7 +16,7 @@
 
 			<!--header regions beg-->
 			<header id="header" class="clearfix" role="banner">
-			 <a href="http://faculty.ucmerced.edu">
+			 
                             <div id="header-container">
                              
 				 <div id="header-panels" class="at-panel gpanel panel-display three-col clearfix">
@@ -27,7 +27,7 @@
 					  <?php print render($page['header_bottom']); ?>
 				 </div>
 			  </div>
-                                                          </a>
+                                                         
 
 		  </header>
       <!--header regions end-->
