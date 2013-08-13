@@ -14,6 +14,10 @@ function Create_Site_Info_menu() {
 }
 
 function show_page(){
+    $conn = ldap_connect('ldap.ucmerced.edu', 389);
+    $bd = ldap_bind($conn, 'uid=Faculty Admin,ou=Special Users,dc=ucmerced,dc=edu', '@schebAg8');
+    $dn = 'ou=People,dc=ucmerced,dc=edu';
+   
     $content = '';
     $handle = opendir("/var/www/html/faculty_sites");
     while (false !== ($entry = readdir($handle))) {
@@ -21,10 +25,15 @@ function show_page(){
             $node = new stdClass();
             $node->type = 'site_info';
             node_object_prepare($node);
+            
+            $filter = '(uid=' . $entry . ')';
+            $search = ldap_search($conn, $dn, $filter);
+            $info = ldap_get_entries($conn, $search);
+    
             $node->title = $entry;
             $node->field_site_name[LANGUAGE_NONE]['0']['url'] = $entry;
-            $node->field_site_name[LANGUAGE_NONE]['0']['title'] = $entry;
-            $node->field_ucm_site_description[LANGUAGE_NONE]['0']['value'] = $entry . "'s Website";
+            $node->field_site_name[LANGUAGE_NONE]['0']['title'] = $info[0]['sn'][0] . ', ' . $info[0]['givenname'][0];
+            $node->field_ucm_site_description[LANGUAGE_NONE]['0']['value'] = $info[0]['ou'][0];
             node_save($node);
         }
         
