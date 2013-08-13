@@ -54,14 +54,14 @@ $attributes['datatable_options'] = array(
 // Define table columns
 $header = array(
   array(
-    'data' => t('Title'),
+    'data' => t('Faculty Member'),
     'datatable_options' => array(
       'bSortable' => TRUE,
       'bSearchable' => TRUE,
     ),
   ),
   array(
-    'data' => t('Description'),
+    'data' => t('School'),
     'datatable_options' => array(
       'bSortable' => TRUE,
       'bSearchable' => TRUE,

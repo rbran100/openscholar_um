@@ -22,21 +22,20 @@ function show_page(){
     $handle = opendir("/var/www/html/faculty_sites");
     while (false !== ($entry = readdir($handle))) {
         if($entry != '.' && $entry != '..'){
-            $node = new stdClass();
-            $node->type = 'site_info';
-            node_object_prepare($node);
-            
             $filter = '(uid=' . $entry . ')';
             $search = ldap_search($conn, $dn, $filter);
             $info = ldap_get_entries($conn, $search);
-    
+            if(count($info) > 0){
+                $node = new stdClass();
+            $node->type = 'site_info';
+            node_object_prepare($node);
             $node->title = $entry;
             $node->field_site_name[LANGUAGE_NONE]['0']['url'] = $entry;
             $node->field_site_name[LANGUAGE_NONE]['0']['title'] = $info[0]['sn'][0] . ', ' . $info[0]['givenname'][0];
             $node->field_ucm_site_description[LANGUAGE_NONE]['0']['value'] = $info[0]['ou'][0];
             node_save($node);
+            }
         }
-        
     }
     return $content;
 }
