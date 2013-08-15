@@ -1,4 +1,4 @@
-name        = Clean Blue
+name        = CAIS
 description = Clean theme with blue and grey colors.
 core        = 7.x
 engine      = phptemplate
@@ -8,8 +8,8 @@ release = 7.x-3.x
 flavor_name = "Blue"
 plugins[os][flavor] = flavors
 
-stylesheets[all][]   = css/cleanblue.responsive.layout.css
-stylesheets[all][]   = css/cleanblue.css
+stylesheets[all][]   = css/cais.responsive.layout.css
+stylesheets[all][]   = css/cais.css
 
 
 os[theme_type]   = 'vsite'
