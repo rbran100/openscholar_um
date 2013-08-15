@@ -233,14 +233,19 @@ EOF;
             fclose($handle);
             drupal_set_message("Created home folder");
             
-            $node = new stdClass();
-            $node->type = 'site_info';
-            node_object_prepare($node);
-            $node->title = $domain;
-            $node->field_site_name[LANGUAGE_NONE]['0']['url'] = $domain;
-            $node->field_site_name[LANGUAGE_NONE]['0']['title'] = $values['title'];
-            $node->field_ucm_site_description[LANGUAGE_NONE]['0']['value'] = $values['description'];
-            node_save($node);
+            //GRAB USER INFO FROM LDAP AND USE IT TO POPULATE
+            //SITE_INFO NODE
+            create_siteinfo_node($user->name, $domain);
+            
+            
+//            $node = new stdClass();
+//            $node->type = 'site_info';
+//            node_object_prepare($node);
+//            $node->title = $domain;
+//            $node->field_site_name[LANGUAGE_NONE]['0']['url'] = $domain;
+//            $node->field_site_name[LANGUAGE_NONE]['0']['title'] = $values['title'];
+//            $node->field_ucm_site_description[LANGUAGE_NONE]['0']['value'] = $values['description'];
+//            node_save($node);
             
         } else {
             drupal_set_message("Failed to create home folder.", 'error');
@@ -257,15 +262,18 @@ EOF;
             //die(print_r($site_owner));
             //die('<pre>' . print_r($vsite,1) . '</pre>');
             //dpm($vsite->group->nid);
-            $node = new stdClass();
-            $node->type = 'site_info';
-            node_object_prepare($node);
-            $node->title = $values['title'];
-            $node->field_nid[LANGUAGE_NONE]['0']['value'] = $vsite->group->nid;
-            $node->field_site_name[LANGUAGE_NONE]['0']['url'] = $domain;
-            $node->field_site_name[LANGUAGE_NONE]['0']['title'] = $values['title'];
-            $node->field_ucm_site_description[LANGUAGE_NONE]['0']['value'] = $values['description'];
-            node_save($node);
+            
+            create_siteinfo_node($user->name, $domain);
+            
+//            $node = new stdClass();
+//            $node->type = 'site_info';
+//            node_object_prepare($node);
+//            $node->title = $values['title'];
+//            $node->field_nid[LANGUAGE_NONE]['0']['value'] = $vsite->group->nid;
+//            $node->field_site_name[LANGUAGE_NONE]['0']['url'] = $domain;
+//            $node->field_site_name[LANGUAGE_NONE]['0']['title'] = $values['title'];
+//            $node->field_ucm_site_description[LANGUAGE_NONE]['0']['value'] = $values['description'];
+//            node_save($node);
             //IF THE USER HAS A NON-OS SITE, DELETE THE APACHE ALIAS DIRECTIVE TO THE OLD SITE
             if(file_exists('/var/www/html/httpd_conf/aliases/' . $domain)){
                 unlink('/var/www/html/httpd_conf/aliases/' . $domain);
@@ -647,3 +655,23 @@ function vsite_register_mail($key, &$message, $params) {
     $message['vsite'] = $params['vsite'];
     $message['user'] = $params['user'];
 }
+
+
+function create_siteinfo_node($username,$domain){
+    $conn = ldap_connect('ldap.ucmerced.edu', 389);
+    $bd = ldap_bind($conn, 'uid=Faculty Admin,ou=Special Users,dc=ucmerced,dc=edu', '@schebAg8');
+    $dn = 'ou=People,dc=ucmerced,dc=edu';
+    $filter = '(uid=' . $username . ')';
+    $search = ldap_search($conn, $dn, $filter);
+    $info = ldap_get_entries($conn, $search);
+    if(count($info) > 0){
+        $node = new stdClass();
+        $node->type = 'site_info';
+        node_object_prepare($node);
+        $node->title = $entry;
+        $node->field_site_name[LANGUAGE_NONE]['0']['url'] = $entry;
+        $node->field_site_name[LANGUAGE_NONE]['0']['title'] = $info[0]['sn'][0] . ', ' . $info[0]['givenname'][0];
+        $node->field_ucm_site_description[LANGUAGE_NONE]['0']['value'] = $info[0]['ou'][0];
+        node_save($node);
+    }
+ }
