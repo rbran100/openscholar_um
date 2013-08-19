@@ -350,5 +350,5 @@ ul.nice-menu-right li.menuparent a:hover {
   }
   
   #block-system-main-menu{
-      display:none;
+      display:none!important;
   }

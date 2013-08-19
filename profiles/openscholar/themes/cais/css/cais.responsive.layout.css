@@ -19,3 +19,6 @@
 .region-header-first {width:160px; margin-left:0px;}
 .region-header-third {width:195px; margin-left:-195px;text-align: right;}
 .region-header-second {width:100%;}
+  #block-system-main-menu{
+      display:none!important;
+  }
