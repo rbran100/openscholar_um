@@ -9,7 +9,7 @@ function vsite_register_form($form, &$state) {
     global $base_url;
     global $user;
     $vsites = vsite_get_vsite_by_owner($user->uid);
-    if(count($vsites) > 0){
+    if(count($vsites) > 1){
       
         drupal_set_message("You have already registered a site.", "error");
         drupal_goto("<front>");
