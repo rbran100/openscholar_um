@@ -42,17 +42,17 @@ function vsite_register_form($form, &$state) {
         '#suffix' => '</div>',
     );
 
-    $form['domain'] = array(
-        '#title' => 'Domain name',
-        '#attributes' => array('readonly' => 'readonly'),
-        '#type' => 'textfield',
-        '#default_value' => $user->name,
-        '#states' => array(
-      'invisible' => array(
-       ':input[name="site_type"]' => array('value' => 1),
-      ),
-    ),
-    );
+//    $form['domain'] = array(
+//        '#title' => 'Domain name',
+//        '#attributes' => array('readonly' => 'readonly'),
+//        '#type' => 'textfield',
+//        '#default_value' => $user->name,
+//        '#states' => array(
+//      'invisible' => array(
+//       ':input[name="site_type"]' => array('value' => 1),
+//      ),
+//    ),
+//    );
     
     $form['title'] = array(
         '#title' => 'Site title',
@@ -188,13 +188,13 @@ function vsite_register_form_submit(&$form, &$state) {
 
 //  }
     //set the domain name which will either be the username or value from form
-    if($values['domain'] == ''){
+    //if($values['domain'] == ''){
         $domain = $user->name;
-    }else{
+    //}else{
         //$domain = $values['domain'];
-        $domain = $values['domain'];
-    }
-
+      //  $domain = $values['domain'];
+   // }
+//
     //if the type chosen is "FTP", then create an SSH site
     if ($values['site_type'] == '1') {
         $domain = $user->name;
