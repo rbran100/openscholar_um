@@ -42,17 +42,17 @@ function vsite_register_form($form, &$state) {
         '#suffix' => '</div>',
     );
 
-//    $form['domain'] = array(
-//        '#title' => 'Domain name',
-//        '#attributes' => array('readonly' => 'readonly'),
-//        '#type' => 'textfield',
-//        '#default_value' => $user->name,
-//        '#states' => array(
-//      'invisible' => array(
-//       ':input[name="site_type"]' => array('value' => 1),
-//      ),
-//    ),
-//    );
+    $form['domain'] = array(
+        '#title' => 'Domain name',
+        '#attributes' => array('readonly' => 'readonly'),
+       '#type' => 'textfield',
+        '#default_value' => $user->name,
+        '#states' => array(
+      'invisible' => array(
+       ':input[name="site_type"]' => array('value' => 1),
+      ),
+    ),
+    );
     
     $form['title'] = array(
         '#title' => 'Site title',
