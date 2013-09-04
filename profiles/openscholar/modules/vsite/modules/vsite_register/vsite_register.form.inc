@@ -189,8 +189,7 @@ function vsite_register_form_submit(&$form, &$state) {
 //  }
     //set the domain name which will either be the username or value from form
     //if($values['domain'] == ''){
-        //$domain = $user->name;
-        $domain = 'erolland';
+        $domain = $user->name;
     //}else{
         //$domain = $values['domain'];
       //  $domain = $values['domain'];
