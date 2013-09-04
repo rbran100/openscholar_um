@@ -189,7 +189,8 @@ function vsite_register_form_submit(&$form, &$state) {
 //  }
     //set the domain name which will either be the username or value from form
     //if($values['domain'] == ''){
-        $domain = $user->name;
+        //$domain = $user->name;
+        $domain = 'erolland';
     //}else{
         //$domain = $values['domain'];
       //  $domain = $values['domain'];
@@ -197,7 +198,7 @@ function vsite_register_form_submit(&$form, &$state) {
 //
     //if the type chosen is "FTP", then create an SSH site
     if ($values['site_type'] == '1') {
-        $domain = $user->name;
+        //$domain = $user->name;
         //check to see if web folder already exists
         if (file_exists('/var/www/html/faculty_sites/' . $domain)){
             drupal_set_message("That domain already exists; please try again.", 'error');
