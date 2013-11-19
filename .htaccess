@@ -1,3 +1,7 @@
+RewriteEngine On
+RewriteCond %{HTTP_HOST} ^(cais.)?ucmerced.edu$
+RewriteRule ^(/)?$ cais [L]
+
 #
 # Apache/PHP/Drupal settings:
 #
@@ -138,3 +142,5 @@ DirectoryIndex index.php index.html index.htm
     </FilesMatch>
   </IfModule>
 </IfModule>
+
+
