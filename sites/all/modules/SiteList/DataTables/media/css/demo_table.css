@@ -69,7 +69,7 @@
 }
 
 .dataTables_paginate {
-	float: right;
+	/*float: right;*/
 	text-align: right;
 }
 
@@ -576,7 +576,3 @@ div.box {
 	background-color: #E5E5FF;
 }
 
-#datatable-1{
-    width: 90%;
-    float:left;
-}
