@@ -50,7 +50,7 @@ $attributes['datatable_options'] = array(
   'bInfo'     => TRUE,
   'bJQueryUI' => TRUE,
   'iDisplayLength' => 20,
-    'bPaginate' => FALSE,
+    'bPaginate' => TRUE,
     'bAutoWidth' => TRUE,
 );
 // Define table columns
