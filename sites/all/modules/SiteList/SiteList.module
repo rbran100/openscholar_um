@@ -50,6 +50,8 @@ $attributes['datatable_options'] = array(
   'bInfo'     => TRUE,
   'bJQueryUI' => TRUE,
   'iDisplayLength' => 20,
+    'bPaginate' => TRUE,
+    'bAutoWidth' => TRUE,
 );
 // Define table columns
 $header = array(
