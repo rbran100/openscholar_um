@@ -1178,9 +1178,9 @@ body .ui-tooltip {
 	border-radius: 8px;
 }
 
-#datatable-1{
+#sitelist{
     width:100%;
-    border: solid 1px #ddd;
+   
 }
 
 #sitelist_filter{
