@@ -70,19 +70,19 @@ $header = array(
 );
  
 // Render using Drupal's render API.
-$build['datatable'] = array(
-  '#theme' => 'datatable',
-  '#header' => $header,
-  '#rows' => $rows,
-  '#attributes' => $attributes,
-);
+//$build['datatable'] = array(
+//  '#theme' => 'datatable',
+//  '#header' => $header,
+//  '#rows' => $rows,
+//  '#attributes' => $attributes,
+//);
  
 // Or, render using a theme function.
-//$variables = array(
-//  'attributes' => $attributes,
-//  'header' => $header,
-//  'rows' => $rows,
-//);
+$variables = array(
+  'attributes' => $attributes,
+  'header' => $header,
+  'rows' => $rows,
+);
 $content .= theme('datatable', $variables);
 
     $block = array (
