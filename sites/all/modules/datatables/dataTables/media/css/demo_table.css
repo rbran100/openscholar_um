@@ -577,5 +577,7 @@ div.box {
 }
 
 #datatable-1{
+    float:left;
     width:100%;
+    
 }
