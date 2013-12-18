@@ -1189,6 +1189,7 @@ body .ui-tooltip {
 
 }
 
-#datatable-1{
+.datatable-processed{
     width:90%;
+    float:left;
 }
