@@ -69,7 +69,7 @@
 }
 
 .dataTables_paginate {
-	/*float: right;*/
+	float: right;
 	text-align: right;
 }
 
