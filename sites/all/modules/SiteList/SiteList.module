@@ -48,7 +48,7 @@ if ($block_name == 'site_list'){
 $attributes['datatable_options'] = array(
   'bFilter'   => TRUE,
   'bInfo'     => TRUE,
-  'bJQueryUI' => TRUE,
+  'bJQueryUI' => FALSE,
   'iDisplayLength' => 20,
     'bPaginate' => TRUE,
     'bAutoWidth' => TRUE,
